@@ -34,7 +34,7 @@ class ControlCardView: UIView {
         
         // Layout
         
-        self.backgroundColor = UIColor(hexString: "#FF9900", alpha: 0.8)
+        self.backgroundColor = UIColor(hexString: "#F5BC4F", alpha: 0.8)
         self.layer.shadowColor = UIColor.grayColor().CGColor
         self.layer.shadowOpacity = 0.5
         self.layer.shadowRadius = 2.0
@@ -49,16 +49,23 @@ class ControlCardView: UIView {
         temperatureLabel = UILabel(frame: CGRectMake(95, 100, 150, 150))
         
         // Render
-        var temperatureString: NSMutableAttributedString = NSMutableAttributedString(string: "72°")
-        temperatureString.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: NSMakeRange(0, temperatureString.length))
-        temperatureString.addAttribute(NSFontAttributeName, value: UIFont(name: "Helvetica-Bold", size: 50)!, range: NSMakeRange(0, temperatureString.length))
-        temperatureLabel?.attributedText = temperatureString
-        temperatureLabel?.sizeToFit()
         
         self.addSubview(upBtn!)
         self.addSubview(temperatureLabel!)
         self.addSubview(downBtn!)
         
+        self.userInteractionEnabled = true
+        upBtn?.userInteractionEnabled = true
+        downBtn?.userInteractionEnabled = true
+        
+    }
+    
+    func updateTemperature(temperature: Int) {
+        var temperatureString: NSMutableAttributedString = NSMutableAttributedString(string: String(temperature)+"°")
+        temperatureString.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: NSMakeRange(0, temperatureString.length))
+        temperatureString.addAttribute(NSFontAttributeName, value: UIFont(name: "Helvetica-Bold", size: 50)!, range: NSMakeRange(0, temperatureString.length))
+        temperatureLabel?.attributedText = temperatureString
+        temperatureLabel?.sizeToFit()
     }
     
 }

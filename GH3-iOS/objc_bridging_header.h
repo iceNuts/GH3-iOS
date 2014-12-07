@@ -15,4 +15,9 @@
 #import "NS-Extension.h"
 #import "CircleView.h"
 
+#import "JBChartView/JBChartView.h"
+#import "JBChartView/JBBarChartView.h"
+#import "JBChartView/JBLineChartView.h"
+#import "JBColorDefault.h"
+#import <pop/POP.h>
 #endif

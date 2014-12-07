@@ -32,7 +32,7 @@ class DisplayCardView: UIView {
     
     func setupUI() {
         
-        self.backgroundColor = UIColor(hexString: "#FF0066", alpha: 0.8)
+        self.backgroundColor = UIColor(hexString: "#E94F54", alpha: 0.8)
         self.layer.shadowColor = UIColor.grayColor().CGColor
         self.layer.shadowOpacity = 0.5
         self.layer.shadowRadius = 2.0
@@ -68,6 +68,18 @@ class DisplayCardView: UIView {
         self.addSubview(cardTitleLabel!)
         self.addSubview(temperatureLabel!)
         self.addSubview(humidityLabel!)
+        
+        var singleFingerTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "scaleAnimate")
+        self.addGestureRecognizer(singleFingerTap)
+    }
+    
+    
+    func scaleAnimate() {
+        var scaleAnimation: POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
+        scaleAnimation.velocity = NSValue(CGSize: CGSizeMake(3.0, 3.0))
+        scaleAnimation.toValue = NSValue(CGSize: CGSizeMake(1.0, 1.0))
+        scaleAnimation.springBounciness = 18.0
+        self.layer .pop_addAnimation(scaleAnimation, forKey: "layerScaleSpringAnimation")
     }
     
 }

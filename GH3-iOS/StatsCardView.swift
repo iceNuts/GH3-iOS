@@ -18,6 +18,7 @@ class StatsCardView: UIView {
     var progress: Int
     var cardViewTitle: UILabel!
     var cardViewTitleIndicator: UIImageView!
+    var finalDisplayProgress: Float
     
     var weatherIcon: UIImageView?
     var temperatureLabel: UILabel?
@@ -29,6 +30,7 @@ class StatsCardView: UIView {
         self.weatherIcon = nil
         self.temperatureLabel = nil
         self.humidityLabel = nil
+        self.finalDisplayProgress = 0.8
         super.init(coder: aDecoder)
     }
     
@@ -38,6 +40,7 @@ class StatsCardView: UIView {
         self.weatherIcon = nil
         self.temperatureLabel = nil
         self.humidityLabel = nil
+        self.finalDisplayProgress = 0.8
         super.init(frame: frame)
         
     }
@@ -64,7 +67,9 @@ class StatsCardView: UIView {
         self.addSubview(titleBar)
         titleBar.addSubview(cardViewTitle)
         titleBar.addSubview(cardViewTitleIndicator)
-
+        
+        var singleFingerTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "scaleAnimate")
+        self.addGestureRecognizer(singleFingerTap)
         
     }
     
@@ -84,19 +89,46 @@ class StatsCardView: UIView {
         
     }
     
-    func showSavingAnimation() {
-        
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "updateSavingFigure", userInfo: nil, repeats: true)
+    func scaleAnimate() {
+        var scaleAnimation: POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
+        scaleAnimation.velocity = NSValue(CGSize: CGSizeMake(3.0, 3.0))
+        scaleAnimation.toValue = NSValue(CGSize: CGSizeMake(1.0, 1.0))
+        scaleAnimation.springBounciness = 18.0
+        self.layer .pop_addAnimation(scaleAnimation, forKey: "layerScaleSpringAnimation")
     }
     
-    func updateSavingFigure() {
+    func showSavingAnimation() {
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "runInitialSavingFigure", userInfo: nil, repeats: true)
+    }
+    
+    func updateSavingFigure(flag: Bool) {
+        if flag {
+            progress += Int(arc4random()%10)
+            let offset = Float(Int(arc4random()%30))/Float(1000)
+            finalDisplayProgress += offset
+        }
+        else {
+            progress -= Int(arc4random()%10)
+            let offset = Float(Int(arc4random()%30))/Float(1000)
+            finalDisplayProgress -= offset
+        }
+        var circleViewString: NSMutableAttributedString = NSMutableAttributedString(string: "$"+String(progress))
+        circleViewString.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: NSMakeRange(0, circleViewString.length))
+        circleViewString.addAttribute(NSFontAttributeName, value: UIFont(name: "Helvetica-Light", size: 25)!, range: NSMakeRange(0, circleViewString.length))
+        circleViewLabel.attributedText = circleViewString
+        circleView.setStrokeEnd(CGFloat(finalDisplayProgress), animated: false)
+        
+    }
+    
+    func runInitialSavingFigure() {
         let total = 480
         var circleViewString: NSMutableAttributedString = NSMutableAttributedString(string: "$"+String(progress))
         circleViewString.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: NSMakeRange(0, circleViewString.length))
         circleViewString.addAttribute(NSFontAttributeName, value: UIFont(name: "Helvetica-Light", size: 25)!, range: NSMakeRange(0, circleViewString.length))
         circleViewLabel.attributedText = circleViewString
         let displayProgress = CGFloat(0.8*(Float(progress)/Float(total)))
-        circleView.setStrokeEnd(displayProgress, animated: true)
+        circleView.setStrokeEnd(displayProgress, animated: false)
         
         if progress >= total{
             timer!.invalidate()

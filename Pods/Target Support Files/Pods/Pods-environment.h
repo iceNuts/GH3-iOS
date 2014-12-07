@@ -6,6 +6,12 @@
 // project.
 
 
+// JBChartView
+#define COCOAPODS_POD_AVAILABLE_JBChartView
+#define COCOAPODS_VERSION_MAJOR_JBChartView 2
+#define COCOAPODS_VERSION_MINOR_JBChartView 8
+#define COCOAPODS_VERSION_PATCH_JBChartView 10
+
 // pop
 #define COCOAPODS_POD_AVAILABLE_pop
 #define COCOAPODS_VERSION_MAJOR_pop 1

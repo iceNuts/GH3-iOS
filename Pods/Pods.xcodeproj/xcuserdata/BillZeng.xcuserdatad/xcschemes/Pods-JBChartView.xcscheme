@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "59BBB22812D10456124F15EE"
-               BuildableName = "libPods-pop.a"
-               BlueprintName = "Pods-pop"
+               BlueprintIdentifier = "014C0E7BB5141CBC4017900D"
+               BuildableName = "libPods-JBChartView.a"
+               BlueprintName = "Pods-JBChartView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

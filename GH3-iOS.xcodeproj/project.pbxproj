@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4331A1981A34396E005E5369 /* TChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4331A1971A34396E005E5369 /* TChartView.swift */; };
 		43330E8A1A33ADEA00188094 /* Arrow-Button-Down.png in Resources */ = {isa = PBXBuildFile; fileRef = 43330E7A1A33ADEA00188094 /* Arrow-Button-Down.png */; };
 		43330E8B1A33ADEA00188094 /* Arrow-Button-Up.png in Resources */ = {isa = PBXBuildFile; fileRef = 43330E7B1A33ADEA00188094 /* Arrow-Button-Up.png */; };
 		43330E8C1A33ADEA00188094 /* Battery-Meter-50-Percent.png in Resources */ = {isa = PBXBuildFile; fileRef = 43330E7C1A33ADEA00188094 /* Battery-Meter-50-Percent.png */; };
@@ -55,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		3BC1ECF90FF7EE0D03DA29AD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4331A1971A34396E005E5369 /* TChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TChartView.swift; sourceTree = "<group>"; };
+		4331A1991A3443E4005E5369 /* JBColorDefault.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBColorDefault.h; sourceTree = "<group>"; };
 		43330E7A1A33ADEA00188094 /* Arrow-Button-Down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow-Button-Down.png"; sourceTree = "<group>"; };
 		43330E7B1A33ADEA00188094 /* Arrow-Button-Up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow-Button-Up.png"; sourceTree = "<group>"; };
 		43330E7C1A33ADEA00188094 /* Battery-Meter-50-Percent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Battery-Meter-50-Percent.png"; sourceTree = "<group>"; };
@@ -126,6 +129,7 @@
 			children = (
 				43330E9B1A33BE4800188094 /* CircleView.h */,
 				43330E9C1A33BE4800188094 /* CircleView.m */,
+				4331A1991A3443E4005E5369 /* JBColorDefault.h */,
 			);
 			name = objc;
 			sourceTree = "<group>";
@@ -208,6 +212,7 @@
 				43330EA11A33F99A00188094 /* ControlCardView.swift */,
 				43330EA31A33FA7400188094 /* DisplayCardView.swift */,
 				43330EA51A340C9400188094 /* HomeCardView.swift */,
+				4331A1971A34396E005E5369 /* TChartView.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				TargetAttributes = {
 					43E11FFC1A33707800F81A22 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = ZCUN32244A;
 					};
 					43E120111A33707800F81A22 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -430,6 +436,7 @@
 				43330EA41A33FA7400188094 /* DisplayCardView.swift in Sources */,
 				43330E9D1A33BE4800188094 /* CircleView.m in Sources */,
 				43E120321A3383EA00F81A22 /* UIImage+Blur.m in Sources */,
+				4331A1981A34396E005E5369 /* TChartView.swift in Sources */,
 				43330EA61A340C9400188094 /* HomeCardView.swift in Sources */,
 				43E120311A3383EA00F81A22 /* UIColor+CustomColors.m in Sources */,
 				43E120031A33707800F81A22 /* AppDelegate.swift in Sources */,
@@ -558,11 +565,15 @@
 			baseConfigurationReference = 49CF1CB1FB178A6054A9088C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "GH3-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GH3-iOS/objc_bridging_header.h";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -571,11 +582,15 @@
 			baseConfigurationReference = 3BC1ECF90FF7EE0D03DA29AD /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "GH3-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GH3-iOS/objc_bridging_header.h";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

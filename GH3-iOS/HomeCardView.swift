@@ -53,7 +53,7 @@ class HomeCardView: UIView {
 
     func setupUI() {
         
-        self.backgroundColor = UIColor(hexString: "#0066FF", alpha: 0.8)
+        self.backgroundColor = UIColor(hexString: "#55CAF7", alpha: 0.8)
         self.layer.shadowColor = UIColor.grayColor().CGColor
         self.layer.shadowOpacity = 0.5
         self.layer.shadowRadius = 2.0
@@ -75,10 +75,24 @@ class HomeCardView: UIView {
         sensiAlphaBatteryView?.image = UIImage(named: "Battery-Meter-50-Percent")
         sensiBetaBatterView?.image = UIImage(named: "Battery-Meter-75-Percent")
         
+        homeBtn = UIImageView(frame: CGRectMake(15, self.frame.height-70, 40, 40))
+        settingsBtn = UIImageView(frame: CGRectMake(75, self.frame.height-70, 40, 40))
+        peopleBtn = UIImageView(frame: CGRectMake(135, self.frame.height-70, 40, 40))
+        infoBtn = UIImageView(frame: CGRectMake(195, self.frame.height-70, 40, 40))
+        
+        homeBtn?.image = UIImage(named: "ICON-Home")
+        settingsBtn?.image = UIImage(named: "ICON-Gear")
+        peopleBtn?.image = UIImage(named: "ICON-Users")
+        infoBtn?.image = UIImage(named: "ICON-Info")
+        
         self.addSubview(sensiAlphaBatteryView!)
         self.addSubview(sensiBetaBatterView!)
         self.addSubview(sensiControl!)
         self.addSubview(sensiStatusControl!)
+        self.addSubview(homeBtn!)
+        self.addSubview(settingsBtn!)
+        self.addSubview(peopleBtn!)
+        self.addSubview(infoBtn!)
     }
     
 }

@@ -1,2 +1,2 @@
 pod "pop"
-
+pod "JBChartView"
